@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JSON JQUERY - PHP</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- <link rel="stylesheet" type="text/css" href="bootstrap-4.5.0-dist/css/bootstrap.css"> -->
+    <!-- <script type="text/javascript" src="bootstrap-4.5.0-dist/js/bootstrap.js"></script> -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.8.10/themes/smoothness/jquery-ui.css" type="text/css">
+    <script type="text/javascript" src="//ajax.aspnetcdn.com/ajax/jquery.ui/1.8.10/jquery-ui.min.js"></script>
+    <script type="text/javascript">
+        $("document").ready(function() {
+            /* untuk letak url silahkan di sesuaikan dengan letak script di folder htdocs Anda */
+            $.getJSON('http://192.168.43.231/Lentera_Bumi_Nusantara/about_us.php', {
+                get_param: 'value'
+            }, function(data) {
+                $.each(data, function(index, element) {
+                    /* mengisikan table dari hasil json */
+                    // alert(element.id);
+                    $('#tabledata').find('tbody')
+                        .append($('<tr>')
+                            .append(
+                                '<td>' + element.nomor + '</td>' +
+                                '<td>' + element.kecepatan_angin + '</td>' +
+                                '<td>' + element.arah_angin + '</td>' +
+                                '<td>' + element.arus + '</td>' +
+                                '<td>' + element.tegangan + '</td>' +
+                                '<td>' + element.Kws + '</td>' +
+                                '<td>' + element.waktu + '</td>'
+                            )
+                        );
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <h1>Demo JQUERY GetJSON Ambil data dari JSON PHP</h1>
+    <p>Halaman ini mendemokan bagaimana GetJSON JQUERY mampu mempersing data JSON yang digenerate oleh PHP JSON ENCODE</p>
+
+    <table border="1" width="60%" id="tabledata">
+        <thead>
+            <tr>
+                <th>Nomor</th>
+                <th>Kecepatan Angin</th>
+                <th>Arah Angin</th>
+                <th>Arus</th>
+                <th>Tegangan</th>
+                <th>Kws</th>
+                <th>Waktu</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <br />
+    <a href="">Kembali ke tutorial</a>
+</body>
+
+</html>
