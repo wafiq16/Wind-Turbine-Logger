@@ -7,5 +7,8 @@ In This project we using
 3. PHPmqtt as mqtt client.
 4. Flutter as Mobile platform(cross platform).
 
+You can find embedded code on this link 
+https://github.com/cprastyawan/ESP32-DataLogger
+
 ![image](https://user-images.githubusercontent.com/47443345/118919729-47a59e00-b95f-11eb-9323-78f77afb9368.png)
 
